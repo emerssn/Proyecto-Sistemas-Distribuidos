@@ -4,7 +4,7 @@ Express
 ReactJS
 NodeJS
 
-Para el frontend se utiliza la libreria Reactjs con el framework Vitejs, ademas del framework Tailwindcss.
+Para el frontend se utiliza la libreria Reactjs con el framework Vitejs, ademas del framework Tailwindcss con daisyUI.
 Para el backend se utiliza Nodejs junto a Express y la base de datos MongoDB.
 
 Dependencias necesarias para el backend:
@@ -19,6 +19,7 @@ nodemon - Para monitorear los cambios en el codigo y que automaticamente reinici
 
 Dependencias necesarias para el frontend:
 Tailwindcss - Framework para manejar los estilos de forma rapida y mejorada.
+daisyUI - Plugin para tailwindcss con estilos predefinidos y mejoras en rapidez de codigo.
 
 El proyecto esta separado por las carpetas backend (MongoDB, Express y Nodejs) y frontend (Reactjs):
 
