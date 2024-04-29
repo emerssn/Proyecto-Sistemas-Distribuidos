@@ -1,7 +1,5 @@
 # Chat en tiempo real con MERN y Socket.IO
 
-Foobar is a Python library for dealing with word pluralization.
-
 ## Instalación
 
 1. Clona el repositorio
