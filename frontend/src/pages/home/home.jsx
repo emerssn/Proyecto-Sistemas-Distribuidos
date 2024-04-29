@@ -6,8 +6,11 @@ import Perfil from "../../components/perfil/perfil.jsx";
 import Search from "../../components/search/search.jsx";
 import Chat from "../../components/chats/chat.jsx";
 import ChatContainer from "../../components/chats/chatContainer.jsx";
+import useGetChats from "../../hooks/useGetChats.js";
 
 function home() {
+  const { loading, chats } = useGetChats();
+
   return (
     <>
       <div className="flex h-screen">
@@ -15,15 +18,21 @@ function home() {
           <div className="flex flex-col items-center">
             <Perfil />
             <Chats />
-            <Contacts />
           </div>
           <Logout />
         </div>
         <div className="bg-white">
           <Search />
-          <div className="flex flex-col">
-            <Chat />
-            <Chat />
+          <div className="flex flex-col overflow-auto h-4/5">
+            {chats.map((chat) => (
+              <Chat 
+              key={chat._id} 
+              chat={chat} 
+              />
+            ))}
+            {loading ? (
+              <span className="loading loading-spinner mx-auto"></span>
+            ) : null}
           </div>
         </div>
         <ChatContainer />

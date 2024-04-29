@@ -42,7 +42,7 @@ export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    const validPassword = await bcrypt.compare(password, user.password || "");
+    const validPassword = await bcrypt.compare(password, user?.password || "");
     if (!user || !validPassword) {
       return res
         .status(400)
@@ -56,13 +56,14 @@ export const login = async (req, res) => {
       profilePicture: user.profilePicture,
     });
   } catch (error) {
+    console.log("Error in login controller", error.message);
     res.status(500).json({ message: error.message });
   }
 };
 
 export const logout = (req, res) => {
   try {
-    res.cookie("jwt", "", {maxAge: 0});
+    res.cookie("jwt", "", { maxAge: 0 });
     res.status(200).json({ message: "Sesión cerrada exitosamente" });
   } catch (error) {
     res.status(500).json({ message: error.message });
